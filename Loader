@@ -21,8 +21,8 @@ end
 ------------------------------------------------------------------------------------------------------------ Main Loadstrings For WetHub
 if game.PlaceId == 5272267802 then -- One -- BeAToy
 		loadstring(game:HttpGet("https://raw.githubusercontent.com/Night-Hub/WetHubReformed/refs/heads/main/BeAToy"))()
-	elseif game.PlaceId == 286090429 then -- Two -- Nil
-        loadstring(game:HttpGet("--"))()
+	elseif game.PlaceId == 126884695634066 then -- Two -- Grow A Garden
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/Night-Hub/WetHubReformed/refs/heads/main/GrowAGarden"))()
 	elseif game.PlaceId == 2753915549 then -- Three -- Nil
 		loadstring(game:HttpGet("--"))()
 	elseif game.PlaceId == 2986677229 then -- Four -- Nil
