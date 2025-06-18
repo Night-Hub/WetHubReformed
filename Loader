@@ -1,11 +1,22 @@
 --VERSION 1.0
 
 ------------------------------------------------------------------------------------------------------------ Making Sure WetHub Has Not Already Been Executed
-for i,v in pairs(game.CoreGui:GetDescendants()) do
+for i, v in pairs(game.CoreGui:GetDescendants()) do
 	if v.Name == "WetHub" then
 		warn("You've Already Executed WetHub!")
-		task.wait()
-    end
+		print("Sending Notification")
+		game.StarterGui:SetCore("SendNotification",
+		{ Title = "WetHub";
+		Text = "Script has already been executed!";
+		Icon = "rbxthumb://type=Asset&id=6845502547&w=150&h=150";
+		Duration = 10;
+		Button1 = "Okay";
+		Callback = NotificationBindable; })
+		print("Notification Sent!")
+		while true do
+			task.wait()
+		end
+	end
 end
 ------------------------------------------------------------------------------------------------------------ Main Loadstrings For WetHub
 if game.PlaceId == 5272267802 then -- One -- BeAToy
