@@ -2,7 +2,7 @@
 
 ------------------------------------------------------------------------------------------------------------ Making Sure WetHub Has Not Already Been Executed
 for i, v in pairs(game.CoreGui:GetDescendants()) do
-	if v.Name == "WetHub" or v.Name == "Wethub - Grow A Garden" then
+	if v.Name == "WetHub" or v.Name == "WetHub - Grow A Garden" then
 		warn("You've Already Executed WetHub!")
 		print("Sending Notification")
 		game.StarterGui:SetCore("SendNotification",
