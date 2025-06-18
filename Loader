@@ -1,0 +1,22 @@
+--VERSION 1.0
+
+------------------------------------------------------------------------------------------------------------ Making Sure WetHub Has Not Already Been Executed
+for i,v in pairs(game.CoreGui:GetDescendants()) do
+	if v.Name == "WetHub" then
+		warn("You've Already Executed WetHub!")
+		task.wait()
+    end
+end
+------------------------------------------------------------------------------------------------------------ Main Loadstrings For WetHub
+if game.PlaceId == 5272267802 then -- One -- BeAToy
+		loadstring(game:HttpGet("https://raw.githubusercontent.com/Night-Hub/WetHubReformed/refs/heads/main/BeAToy"))()
+	elseif game.PlaceId == 286090429 then -- Two -- Nil
+        loadstring(game:HttpGet("--"))()
+	elseif game.PlaceId == 2753915549 then -- Three -- Nil
+		loadstring(game:HttpGet("--"))()
+	elseif game.PlaceId == 2986677229 then -- Four -- Nil
+		loadstring(game:HttpGet("--"))()
+	elseif game.PlaceId == 28609042 then
+		--loadstring
+	end
+------------------------------------------------------------------------------------------------------------
