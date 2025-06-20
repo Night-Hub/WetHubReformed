@@ -1,4 +1,4 @@
---VERSION 1.0
+--VERSION 0.3
 
 ------------------------------------------------------------------------------------------------------------ Making Sure WetHub Has Not Already Been Executed
 for i, v in pairs(game.CoreGui:GetDescendants()) do
