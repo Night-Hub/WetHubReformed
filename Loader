@@ -1,33 +1,35 @@
+-------------------------------------------------------------------------
+
 --VERSION 0.3
 
------------------------------------------------------------------------------------------------------------- Making Sure WetHub Has Not Already Been Executed
-for i, v in pairs(game.CoreGui:GetDescendants()) do
-	if v.Name == "WetHub" or v.Name == "WetHub - Grow A Garden" then
-		warn("You've Already Executed WetHub!")
-		print("Sending Notification")
-		game.StarterGui:SetCore("SendNotification",
-		{ Title = "WetHub";
-		Text = "Script has already been executed!";
-		Icon = "rbxthumb://type=Asset&id=6845502547&w=150&h=150";
-		Duration = 10;
-		Button1 = "Okay";
-		Callback = NotificationBindable; })
-		print("Notification Sent!")
-		while true do
-			task.wait()
-		end
-	end
+---------------------------- Supported Games ----------------------------
+local supportedGames = {
+    [5272267802] = "https://raw.githubusercontent.com/Night-Hub/WetHubReformed/refs/heads/main/BeAToy",
+    [126884695634066] = "https://raw.githubusercontent.com/Night-Hub/WetHubReformed/refs/heads/main/GrowAGarden",
+    [537413528] = "https://raw.githubusercontent.com/Night-Hub/WetHubReformed/refs/heads/main/BABFT",
+}
+
+---------------------------- Game ID Checker ----------------------------
+local gameFound = false
+for i = 1, 30 do -- Will wait 30 seconds, if no compatible Game ID is found, Universal will load
+    local currentPlaceId = game.PlaceId
+
+    if supportedGames[currentPlaceId] then
+        print("[WetHub] Supported game detected: PlaceId", currentPlaceId)
+        loadstring(game:HttpGet(supportedGames[currentPlaceId]))()
+        gameFound = true
+        break
+    end
+
+    task.wait(1)
 end
------------------------------------------------------------------------------------------------------------- Main Loadstrings For WetHub
-if game.PlaceId == 5272267802 then -- One -- BeAToy
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/Night-Hub/WetHubReformed/refs/heads/main/BeAToy"))()
-	elseif game.PlaceId == 126884695634066 then -- Two -- Grow A Garden
-        loadstring(game:HttpGet("https://raw.githubusercontent.com/Night-Hub/WetHubReformed/refs/heads/main/GrowAGarden"))()
-	elseif game.PlaceId == 537413528 then -- Three -- BABFT
-		loadstring(game:HttpGet("https://raw.githubusercontent.com/Night-Hub/WetHubReformed/refs/heads/main/BABFT"))()
-	elseif game.PlaceId == 2986677229 then -- Four -- Nil
-		loadstring(game:HttpGet("--"))()
-	elseif game.PlaceId == 28609042 then
-		--loadstring
-	end
-------------------------------------------------------------------------------------------------------------
+
+----------------------- Universal Script Fallbadk -----------------------
+local universalloadstring = "--" -- Not Made Yet 
+
+if not gameFound then
+    print("[WetHub] No supported game detected after 30 seconds. Executing fallback.")
+    loadstring(game:HttpGet(universalloadstring))()
+end
+
+-------------------------------------------------------------------------
