@@ -31,5 +31,4 @@ if not gameFound then
     print("[WetHub] No supported game detected after 30 seconds. Executing fallback.")
     loadstring(game:HttpGet(universalloadstring))()
 end
-
 -------------------------------------------------------------------------
