@@ -4,9 +4,18 @@
 
 ---------------------------- Supported Games ----------------------------
 local supportedGames = {
-    [5272267802] = "https://raw.githubusercontent.com/Night-Hub/WetHubReformed/refs/heads/main/BeAToy", -- Be A Toy
-    [126884695634066] = "https://raw.githubusercontent.com/Night-Hub/WetHubReformed/refs/heads/main/GrowAGarden", -- Grow A Garden
-    [537413528] = "https://raw.githubusercontent.com/Night-Hub/WetHubReformed/refs/heads/main/BABFT", -- BABFT
+    [5272267802] = {
+        url = "https://raw.githubusercontent.com/Night-Hub/WetHubReformed/refs/heads/main/BeAToy",
+        name = "Be A Toy"
+    },
+    [126884695634066] = {
+        url = "https://raw.githubusercontent.com/Night-Hub/WetHubReformed/refs/heads/main/GrowAGarden",
+        name = "Grow A Garden"
+    },
+    [537413528] = {
+        url = "https://raw.githubusercontent.com/Night-Hub/WetHubReformed/refs/heads/main/BABFT",
+        name = "Build A Boat For Treasure"
+    },
 }
 
 ------------ Making Sure WetHub Has Not Already Been Executed -----------
@@ -33,9 +42,13 @@ local gameFound = false
 for i = 1, 30 do -- Will wait 30 seconds, if no compatible Game ID is found, Universal will load
     local currentPlaceId = game.PlaceId
 
-    if supportedGames[currentPlaceId] then
-        print("[WetHub] Supported game detected: PlaceId", currentPlaceId)
-        loadstring(game:HttpGet(supportedGames[currentPlaceId]))()
+    local gameInfo = supportedGames[currentPlaceId]
+    if gameInfo then
+        print("[WetHub] Supported game detected:")
+        print(" - Name: " .. gameInfo.name)
+        print(" - PlaceId: " .. currentPlaceId)
+        
+        loadstring(game:HttpGet(gameInfo.url))()
         gameFound = true
         break
     end
@@ -47,7 +60,10 @@ end
 local universalloadstring = "--" -- Not Made Yet 
 
 if not gameFound then
-    print("[WetHub] No supported game detected after 30 seconds. Executing fallback.")
+    print("[WetHub] No supported game detected after 30 seconds.")
+    print(" - Current PlaceId: " .. game.PlaceId)
+    print("[WetHub] Executing fallback (Universal).")
     loadstring(game:HttpGet(universalloadstring))()
 end
+
 -------------------------------------------------------------------------
